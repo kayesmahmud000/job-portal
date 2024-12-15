@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import RegisterAnimation from "../assets/Animation - 1733894519686.json"
 import AuthContext from '../context/AuthContex';
+import SocialLogin from '../Components/SocialLogin';
 
 const RegisterPage = () => {
     const {createNewUser}=useContext(AuthContext)
@@ -48,6 +49,7 @@ const RegisterPage = () => {
                                 <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
