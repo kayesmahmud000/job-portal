@@ -9,6 +9,7 @@ const LeatestJob = () => {
         .then(res=>res.json())
         .then(data=>setJobs(data))
     },[])
+    console.log(jobs)
     return (
         <div>
 

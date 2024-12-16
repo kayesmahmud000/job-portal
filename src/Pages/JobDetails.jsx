@@ -1,8 +1,10 @@
+import React from 'react';
+import { CiLocationOn } from 'react-icons/ci';
+import { Link, useLoaderData } from 'react-router-dom';
 
-import { CiLocationOn } from "react-icons/ci";
-import { Link } from "react-router-dom";
-
-const JobCard = ({ job }) => {
+const JobDetails = () => {
+    const job=useLoaderData()
+    console.log(job)
     const { title,
         location,
         jobType,
@@ -15,10 +17,9 @@ const JobCard = ({ job }) => {
         responsibilities, salaryRange,
 
     } = job
-    console.log(job)
     return (
-        <div>
-            <div className=" bg-base-100 h-[400px] p-7 my-4 shadow-xl">
+        <div className='h-[700px] '>
+             <div className=" bg-base-100 max-w-xl  mx-auto  p-7 my-4 shadow-xl">
                 <figure className="flex items-center gap-2 ">
                     <img
                         src={company_logo} className="w-16"
@@ -41,7 +42,7 @@ const JobCard = ({ job }) => {
                     </div>
                     <div className=" flex justify-between items-center mt-5">
                         <p className="">${salaryRange.min} -{salaryRange.max} {salaryRange.currency}</p>
-                       <Link to={`/jobDetails/${job._id}`}> <button className="btn bg-blue-400 text-white hover:text-black ">Apply now</button></Link>
+                       <Link to={`/applyJob/${job._id}`}> <button className="btn bg-blue-400 text-white hover:text-black ">Apply now</button></Link>
                     </div>
                 </div>
             </div>
@@ -49,4 +50,4 @@ const JobCard = ({ job }) => {
     );
 };
 
-export default JobCard;
+export default JobDetails;

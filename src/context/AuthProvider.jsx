@@ -22,7 +22,7 @@ const AuthProvider = ({children}) => {
         signOut(auth)
     }
     const googleLogin=()=>{
-        signInWithPopup(auth, provider)
+      return signInWithPopup(auth, provider)
     }
 
     useEffect(()=>{
@@ -43,7 +43,8 @@ const AuthProvider = ({children}) => {
         createNewUser,
         loginUser,
         logOut,
-        googleLogin
+        googleLogin,
+        setUser
     }
     return (
         <AuthContext.Provider value={authInfo}>

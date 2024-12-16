@@ -3,11 +3,15 @@ import React, { useContext } from 'react';
 import LoginAnimation from "../assets/login.json"
 import AuthContext from '../context/AuthContex';
 import SocialLogin from '../Components/SocialLogin';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-    const {loginUser}=useContext(AuthContext)
+    const {loginUser ,setUser}=useContext(AuthContext)
+    const location =useLocation()
+    const navigate= useNavigate()
 
     const handleLogin=e=>{
+        
         e.preventDefault()
         const form= e.target
         const email =form.email.value
@@ -15,8 +19,9 @@ const LoginPage = () => {
 
         loginUser(email, password)
         .then(result=>{
-            console.log(result.user)
-
+            const user=result.user
+            setUser=(user)
+            navigate(location.state? location.state:"/")
         })
         .catch(error=>{
             console.log(error)
