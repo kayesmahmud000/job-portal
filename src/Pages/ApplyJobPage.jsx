@@ -44,7 +44,7 @@ console.log(id)
                     timer: 1500,
                    heightAuto:true
                   })
-               navigate("/my-job")  
+               navigate("/myJob")  
             }
         })
     }
